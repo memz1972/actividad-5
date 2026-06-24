@@ -1,0 +1,175 @@
+/* ==========================================================================
+   1. CONFIGURACIÓN GLOBAL Y VARIABLES (:root)
+   ========================================================================== */
+:root {
+    /* Paleta de Colores - Sistema de Incidentes */
+    --color-primary: #2563eb;       /* Azul Principal (Botones, Enlaces) */
+    --color-primary-hover: #1d4ed8; /* Azul Oscuro para Hover */
+    --color-bg-main: #f8fafc;       /* Fondo de la aplicación */
+    --color-surface: #ffffff;       /* Fondo de Tarjetas y Componentes */
+    --color-text-main: #1e293b;     /* Texto Principal */
+    --color-text-muted: #64748b;    /* Texto Secundario / Desactivado */
+    --color-border: #e2e8f0;        /* Bordes estándar */
+
+    /* Colores de Estado (Alertas / Prioridades) */
+    --color-success: #16a34a;       /* Incidente Resuelto */
+    --color-warning: #ea580c;       /* Incidente Medio / Alto */
+    --color-danger: #dc2626;        /* Incidente Crítico */
+    --color-info: #0284c7;          /* Información / Asignado */
+
+    /* Tipografía y Espaciado */
+    --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --radius-md: 8px;
+    --radius-sm: 4px;
+    --transition-fast: all 0.2s ease-in-out;
+}
+
+/* Aplicación estricta del Modelo de Cajas */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    line-height: 1.5;
+    padding: 2rem;
+}
+
+/* ==========================================================================
+   2. COMPONENTE: BOTONES (.btn)
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.625rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+/* Variaciones usando selectores compuestos */
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--color-border);
+    color: var(--color-text-main);
+}
+.btn-secondary:hover {
+    background-color: var(--color-bg-main);
+}
+
+/* Selector de atributo para estado deshabilitado */
+.btn:disabled, .btn[disabled] {
+    background-color: var(--color-border);
+    color: var(--color-text-muted);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   3. COMPONENTE: FORMULARIOS (.form)
+   ========================================================================== */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+/* Selector avanzado para aplicar estilo a múltiples tipos de input */
+.form-control, 
+input[type="text"], 
+input[type="email"], 
+select, 
+textarea {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    font-size: 0.95rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background-color: var(--color-surface);
+    color: var(--color-text-main);
+    transition: var(--transition-fast);
+}
+
+/* Pseudo-clase de foco */
+.form-control:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* ==========================================================================
+   4. COMPONENTE: TARJETAS (.card)
+   ========================================================================== */
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text-main);
+}
+
+.card-body {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   5. COMPONENTE: ALERTAS (.alert)
+   ========================================================================== */
+.alert {
+    padding: 1rem 1.25rem;
+    border-left: 4px solid transparent;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Variaciones basadas en clases específicas para Incidentes */
+.alert-success {
+    background-color: #f0fdf4;
+    border-left-color: var(--color-success);
+    color: #15803d;
+}
+
+.alert-warning {
+    background-color: #fff7ed;
+    border-left-color: var(--color-warning);
+    color: #c2410c;
+}
+
+.alert-danger {
+    background-color: #fef2f2;
+    border-left-color: var(--color-danger);
+    color: #b91c1c;
+}

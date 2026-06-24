@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Kit - Sistema de Gestión de Incidentes</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos temporales exclusivos para organizar la vista previa en el index */
+        .preview-section { margin-bottom: 3rem; }
+        .preview-section h2 { border-bottom: 2px solid var(--color-border); padding-bottom: 0.5rem; margin-bottom: 1.5rem; color: var(--color-primary); }
+        .flex-container { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <header style="margin-bottom: 3rem;">
+        <h1>UI Kit / Sistema de Diseño</h1>
+        <p style="color: var(--color-text-muted);">Línea gráfica base para el Sistema de Gestión de Incidentes.</p>
+    </header>
+
+    <section class="preview-section">
+        <h2>Componente: Botones</h2>
+        <div class="flex-container">
+            <button class="btn btn-primary">Guardar Incidente</button>
+            <button class="btn btn-secondary">Cancelar</button>
+            <button class="btn btn-primary" disabled>Procesando...</button>
+        </div>
+    </section>
+
+    <section class="preview-section">
+        <h2>Componente: Alertas de Estado</h2>
+        <div class="alert alert-success">
+            <strong>✓ Resuelto:</strong> El servidor de Base de Datos está operativo nuevamente.
+        </div>
+        <div class="alert alert-warning">
+            <strong>⚠ Advertencia:</strong> Uso de memoria en Servidor Web supera el 85%.
+        </div>
+        <div class="alert alert-danger">
+            <strong>✗ Crítico:</strong> Caída total del servicio de API de autenticación.
+        </div>
+    </section>
+
+    <section class="preview-section">
+        <h2>Componentes Complejos: Tarjetas y Formularios</h2>
+        <div class="grid-container">
+            
+            <div class="card">
+                <h3 class="card-title">Ticket #1024 - Falla de Conexión</h3>
+                <div class="card-body">
+                    <p>El usuario reporta intermitencia al intentar ingresar al módulo de reportería desde la red interna.</p>
+                </div>
+                <div class="flex-container">
+                    <button class="btn btn-primary">Asignarme</button>
+                    <button class="btn btn-secondary">Ver detalles</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3 class="card-title">Reportar Nuevo Incidente</h3>
+                <form onsubmit="event.preventDefault();">
+                    <div class="form-group">
+                        <label class="form-label" for="titulo">Título del Incidente</label>
+                        <input type="text" id="titulo" class="form-control" placeholder="Ej: Error 500 al pagar">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="prioridad">Prioridad</label>
+                        <select id="prioridad" class="form-control">
+                            <option value="baja">Baja</option>
+                            <option value="media">Media</option>
+                            <option value="alta">Alta</option>
+                            <option value="critica">Crítica</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Reporte</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
